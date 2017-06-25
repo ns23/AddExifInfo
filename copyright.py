@@ -6,6 +6,7 @@ import os
 
 
 def get_images(path):
+    os.chdir(path)
     return [f for f in os.listdir(path) if os.path.isfile(f)]
     pass
 
@@ -20,7 +21,7 @@ def get_exif_data(image_file):
 
 # Single threaded code
 
-path = raw_input("Enter the path")
+path = raw_input("Enter the path: ")
 
 Copyright = "Paresh Sawant"
 Artist = "Paresh Sawant"
