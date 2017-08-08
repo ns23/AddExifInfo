@@ -4,13 +4,13 @@ import os
 
 # modify exif data and add CopyRight & artist  information
 
-
+# get names of image files in a folder
 def get_images(path):
     os.chdir(path)
     return [f for f in os.listdir(path) if os.path.isfile(f)]
     pass
 
-
+#get existing exif data of image file
 def get_exif_data(image_file):
     try:
         exif_dict = piexif.load(image_file)
@@ -23,13 +23,14 @@ def get_exif_data(image_file):
 
 path = raw_input("Enter the path: ")
 
-Copyright = "Paresh Sawant"
-Artist = "Paresh Sawant"
+Copyright = "" #add name of copyright holder
+Artist = "" #add name of attist
 
 image_files = get_images(path)
 file_count = len(image_files)
 count = 0
 
+#modify exif data for each image in file
 for image in image_files:
     image_path = path + '/' + image
     exif_dict = get_exif_data(image_path)
